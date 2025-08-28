@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸運轉盤</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="wheel-section">
+                <div class="wheel-container">
+                    <canvas id="wheel" width="650" height="650"></canvas>
+                    <div class="pointer"></div>
+                </div>
+            </div>
+            
+            <div class="controls-section">
+                <button id="spinButton" class="spin-btn">開始抽獎</button>
+            </div>
+        </div>
+        
+        <!-- 編輯設定彈窗 -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>編輯轉盤設定</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="option-input-section">
+                        <input type="text" id="optionInput" placeholder="輸入選項名稱" maxlength="20">
+                        <input type="color" id="colorInput" value="#FF1744">
+                        <button id="addOption">新增選項</button>
+                    </div>
+                    <div class="options-list">
+                        <h3>當前選項：</h3>
+                        <ul id="optionsList"></ul>
+                    </div>
+                    <div class="modal-actions">
+                        <button id="clearOptions">清除所有</button>
+                        <button id="randomOptions">隨機選項</button>
+                        <button id="saveOptions">儲存設定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
