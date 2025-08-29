@@ -65,14 +65,14 @@ body {
 
 .pointer {
     position: absolute;
-    top: -130px; /* 調整位置 */
+    top: -130px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 85px solid transparent; /* 再增加一點寬度 */
-    border-right: 85px solid transparent; /* 再增加一點寬度 */
-    border-top: 190px solid #ff4757; /* 再增加一點高度 */
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-top: 190px solid #ff4757;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     z-index: 10;
     cursor: pointer;
@@ -396,25 +396,267 @@ body {
         max-width: 90%;
         margin: 10% auto;
     }
+    
+    /* iPad 觸控優化 */
+    .spin-btn {
+        font-size: 24px;
+        padding: 20px 50px;
+        min-width: 180px;
+        min-height: 60px;
+    }
+    
+    .pointer {
+        top: -120px;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-top: 180px solid #ff4757;
+    }
 }
 
-/* 小螢幕優化 */
+/* iPhone 和手機優化 */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
     }
     
+    .main-content {
+        gap: 15px;
+        margin: 10px 0;
+    }
+    
     #wheel {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
+        border: 8px solid #FFD700;
+        outline: 4px solid white;
+        outline-offset: -8px;
+    }
+    
+    .pointer {
+        top: -100px;
+        border-left: 60px solid transparent;
+        border-right: 60px solid transparent;
+        border-top: 140px solid #ff4757;
+    }
+    
+    .controls-section {
+        min-height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .spin-btn {
+        font-size: 22px;
+        padding: 18px 40px;
+        min-width: 160px;
+        min-height: 55px;
+        border-radius: 12px;
     }
     
     .option-input-section {
         flex-direction: column;
         align-items: stretch;
+        gap: 15px;
     }
     
     .option-input-section input[type="text"] {
         min-width: auto;
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        margin: 5% auto;
+        padding: 20px;
+    }
+    
+    .modal h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .options-list li {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .option-text-input {
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .option-color-input {
+        width: 50px;
+        height: 40px;
+        border-radius: 8px;
+    }
+    
+    .option-hex-input {
+        width: 70px;
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .delete-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+}
+
+/* iPhone 小螢幕優化 */
+@media (max-width: 480px) {
+    .container {
+        padding: 8px;
+    }
+    
+    #wheel {
+        width: 350px;
+        height: 350px;
+        border: 6px solid #FFD700;
+        outline: 3px solid white;
+        outline-offset: -6px;
+    }
+    
+    .pointer {
+        top: -80px;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 120px solid #ff4757;
+    }
+    
+    .spin-btn {
+        font-size: 20px;
+        padding: 16px 35px;
+        min-width: 140px;
+        min-height: 50px;
+    }
+    
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .modal h2 {
+        font-size: 18px;
+    }
+    
+    .options-list li {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .option-text-input {
+        font-size: 15px;
+        padding: 8px;
+    }
+    
+    .option-hex-input {
+        width: 60px;
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+/* 觸控設備特殊優化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 移除 hover 效果，避免觸控設備上的問題 */
+    .pointer:hover {
+        border-top-color: #ff4757;
+        transform: translateX(-50%) scale(1);
+    }
+    
+    .spin-btn:hover {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        transform: none;
+    }
+    
+    .delete-btn:hover {
+        background: #dc3545;
+    }
+    
+    /* 增加觸控目標尺寸 */
+    .pointer {
+        min-height: 60px;
+        min-width: 60px;
+    }
+    
+    /* 確保按鈕有足夠的觸控區域 */
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* 觸控友好的間距 */
+    .main-content {
+        gap: 25px;
+    }
+    
+    .controls-section {
+        gap: 25px;
+    }
+}
+
+/* 橫向模式優化 */
+@media (max-width: 768px) and (orientation: landscape) {
+    .main-content {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    #wheel {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .pointer {
+        top: -70px;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-top: 100px solid #ff4757;
+    }
+    
+    .controls-section {
+        min-height: 300px;
+        padding: 10px;
+    }
+    
+    .spin-btn {
+        font-size: 18px;
+        padding: 14px 30px;
+        min-width: 120px;
+        min-height: 45px;
+    }
+}
+
+/* 高解析度螢幕優化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #wheel {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    .pointer {
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+}
+
+/* 深色模式支援 */
+@media (prefers-color-scheme: dark) {
+    .modal-content {
+        background: #2d3748;
+        color: #e2e8f0;
+    }
+    
+    .modal-content input {
+        background: #4a5568;
+        color: #e2e8f0;
+        border-color: #718096;
+    }
+    
+    .modal-content button {
+        background: #4c51bf;
+        color: white;
     }
 }

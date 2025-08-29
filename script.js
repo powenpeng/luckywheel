@@ -71,6 +71,9 @@ class LuckyWheel {
         
         // 記錄初始選項數量
         this.canvas.dataset.optionsCount = this.options.length.toString();
+        
+        // 移動設備優化
+        this.setupMobileOptimizations();
     }
     
     // 檢測系統字體
@@ -82,6 +85,30 @@ class LuckyWheel {
         } else {
             return '"Noto Sans CJK TC", "Noto Sans CJK SC", "Roboto", "Arial", sans-serif';
         }
+    }
+    
+    // 移動設備優化設定
+    setupMobileOptimizations() {
+        // 防止雙擊縮放
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (event) => {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // 防止滾動縮放
+        document.addEventListener('gesturestart', (e) => e.preventDefault());
+        document.addEventListener('gesturechange', (e) => e.preventDefault());
+        document.addEventListener('gestureend', (e) => e.preventDefault());
+        
+        // 設定觸控操作
+        document.body.style.touchAction = 'manipulation';
+        document.body.style.webkitTouchCallout = 'none';
+        document.body.style.webkitUserSelect = 'none';
+        document.body.style.userSelect = 'none';
     }
     
     // 繪製輪盤
@@ -149,10 +176,34 @@ class LuckyWheel {
         
         // 彈窗事件
         document.querySelector('.close').addEventListener('click', () => this.hideEditModal());
+        document.querySelector('.close').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.hideEditModal();
+        });
+        
         document.getElementById('addOption').addEventListener('click', () => this.addOption());
+        document.getElementById('addOption').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.addOption();
+        });
+        
         document.getElementById('clearOptions').addEventListener('click', () => this.clearOptions());
+        document.getElementById('clearOptions').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.clearOptions();
+        });
+        
         document.getElementById('randomOptions').addEventListener('click', () => this.generateRandomOptions());
+        document.getElementById('randomOptions').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.generateRandomOptions();
+        });
+        
         document.getElementById('saveOptions').addEventListener('click', () => this.saveOptions());
+        document.getElementById('saveOptions').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.saveOptions();
+        });
         
         // 按Enter鍵新增選項
         document.getElementById('optionInput').addEventListener('keypress', (e) => {
@@ -163,6 +214,13 @@ class LuckyWheel {
         
         // 點擊彈窗外部關閉
         window.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('editModal')) {
+                this.hideEditModal();
+            }
+        });
+        
+        // 觸控事件支援
+        window.addEventListener('touchend', (e) => {
             if (e.target === document.getElementById('editModal')) {
                 this.hideEditModal();
             }
