@@ -30,9 +30,9 @@ class LuckyWheel {
             // ScoreLive 貼紙：4個 - 每個都創建新的對象
             ...Array(4).fill().map(() => ({ text: 'ScoreLive 貼紙' })),
             // ScoreLive T恤：3個
-            => { text: 'ScoreLive T恤' },
+            { text: 'ScoreLive T恤' },
             // ScoreLive 棒球帽：1個
-            =>  { text: 'ScoreLive 棒球帽' },
+            { text: 'ScoreLive 棒球帽' },
             // ScoreLive 毛巾：2個 - 每個都創建新的對象
             ...Array(2).fill().map(() => ({ text: 'ScoreLive 應援巾' }))
         ];
