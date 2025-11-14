@@ -25,15 +25,15 @@ class LuckyWheel {
         const defaultItems = [
             // ScoreLive 貼紙：4個 - 每個都創建新的對象
             ...Array(4).fill().map(() => ({ text: 'ScoreLive 貼紙' })),
-            // 14天免費直播序號：6個 - 每個都創建新的對象
-            ...Array(6).fill().map(() => ({ text: '14天免費直播序號' })),
-            // 30天免費直播序號：4個 - 每個都創建新的對象
-            ...Array(4).fill().map(() => ({ text: '30天免費直播序號' })),
-            // ScoreLive T恤：1個
+            // ScoreLive 貼紙：6個 - 每個都創建新的對象
+            ...Array(6).fill().map(() => ({ text: 'ScoreLive 貼紙' })),
+            // ScoreLive 貼紙：4個 - 每個都創建新的對象
+            ...Array(4).fill().map(() => ({ text: 'ScoreLive 貼紙' })),
+            // ScoreLive T恤：2個
             { text: 'ScoreLive T恤' },
             // ScoreLive 棒球帽：1個
             { text: 'ScoreLive 棒球帽' },
-            // ScoreLive 毛巾：2個 - 每個都創建新的對象
+            // ScoreLive 毛巾：1個 - 每個都創建新的對象
             ...Array(2).fill().map(() => ({ text: 'ScoreLive 毛巾' }))
         ];
         
