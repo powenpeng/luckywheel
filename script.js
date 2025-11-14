@@ -24,17 +24,17 @@ class LuckyWheel {
     generateDefaultOptions() {
         const defaultItems = [
             // ScoreLive 貼紙：4個 - 每個都創建新的對象
-            ...Array(4).fill().map(() => ({ text: 'Sticker 貼紙' })),
+            ...Array(4).fill().map(() => ({ text: 'ScoreLive 貼紙' })),
             // ScoreLive 貼紙：6個 - 每個都創建新的對象
-            ...Array(6).fill().map(() => ({ text: 'Sticker 貼紙' })),
+            ...Array(6).fill().map(() => ({ text: 'ScoreLive 貼紙' })),
             // ScoreLive 貼紙：4個 - 每個都創建新的對象
-            ...Array(4).fill().map(() => ({ text: 'Sticker 貼紙' })),
+            ...Array(4).fill().map(() => ({ text: 'ScoreLive 貼紙' })),
             // ScoreLive T恤：2個
-            { text: 'T-Shirt 短袖' },
+            { text: 'ScoreLive T恤' },
             // ScoreLive 棒球帽：1個
-            { text: 'Baseball Cap 棒球帽' },
+            { text: 'ScoreLive 棒球帽' },
             // ScoreLive 毛巾：1個 - 每個都創建新的對象
-            ...Array(2).fill().map(() => ({ text: 'Rally Towel 應援巾' }))
+            ...Array(2).fill().map(() => ({ text: 'ScoreLive 應援巾' }))
         ];
         
         // 隨機打亂順序
