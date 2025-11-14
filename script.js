@@ -34,7 +34,7 @@ class LuckyWheel {
             // ScoreLive 棒球帽：1個
             =>  { text: 'ScoreLive 棒球帽' },
             // ScoreLive 毛巾：2個 - 每個都創建新的對象
-            => ({ text: 'ScoreLive 應援巾' }))
+            ...Array(2).fill().map(() => ({ text: 'ScoreLive 應援巾' }))
         ];
         
         // 隨機打亂順序
